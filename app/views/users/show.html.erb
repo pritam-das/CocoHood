@@ -34,3 +34,6 @@
         <p> Coordinates: <%= @user.latitude %><%= @user.longitude %></p>
         <% end %>
       </div>
+
+      <%= image_tag "http://maps.googleapis.com/maps/api/staticmap?center=#{@user.latitude},#{@user.longitude}&markers=#{@user.latitude},#{@user.longitude}&zoom=7&size=640x400&key=AIzaSyA4BHW3txEdqfxzdTlPwaHsYRSZbfeIcd8",
+              class: 'img-fluid img-rounded', alt: "#{@user.address} on the map"%>
