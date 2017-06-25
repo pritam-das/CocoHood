@@ -24,7 +24,7 @@ class SessionsController < ApplicationController
       session[:user_id] = nil
       cookies.delete(:user_id)
       flash[:notice] = 'User has been logged out succesfully!'
-      redirect_to events_url
+      redirect_to root_url
       #if host is logged in, log out
 
   end
