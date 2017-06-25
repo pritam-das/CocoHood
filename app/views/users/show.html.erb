@@ -26,3 +26,11 @@
         <p> bio: empty </p>
         <% end %>
       </div>
+
+      <div class="user_profile_address">
+
+        <% if @user.address != nil %>
+        <p> Address: <%= "#{@user.address}" %> </p>
+        <p> Coordinates: <%= @user.latitude %><%= @user.longitude %></p>
+        <% end %>
+      </div>
