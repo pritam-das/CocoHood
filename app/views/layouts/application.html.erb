@@ -6,9 +6,16 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8eROKo0NXMtH-CpqiK_nQngGwRXqTmxk"></script>
+</head>
 
   <body>
+    <% if current_user %>
+    <p> Logged in as: <%= link_to "#{current_user.email}", user_path(current_user.id) %> <%= link_to 'Log Out', session_path("current"), :method => :delete%>
+    <% else %>
+    <%= link_to 'Log In', new_session_path %> <%= link_to 'Sign Up', new_user_path %>
+    <%end%>
     <%= yield %>
   </body>
 </html>

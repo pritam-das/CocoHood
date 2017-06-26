@@ -1,0 +1,44 @@
+<h1> User Profile </h1>
+
+      <div class="user_profile_name">
+        <% if @user.name != nil %>
+          <h2><%= "#{@user.name}" %> </h2>
+        <% else %>
+          <h2><%= "#{@user.email}" %></h2>
+        <% end %>
+      </div>
+
+      <div class="edit_profile">
+
+          <% if current_user == @user %>
+            <%= link_to 'Edit your profile', edit_user_path(@user) %>
+            <%end %>
+
+      </div>
+
+
+      <div class="user_profile_bio">
+
+        <h5>BIO</h5>
+        <% if @user.bio != nil %>
+        <%= "#{@user.bio}" %>
+        <% else %>
+        <p> bio: empty </p>
+        <% end %>
+      </div>
+
+      <div class="user_profile_address">
+
+        <% if @user.address != nil %>
+        <p> Address: <%= "#{@user.address}" %> </p>
+        <p> Coordinates: <%= @user.latitude %><%= @user.longitude %></p>
+        <% end %>
+      </div>
+<!--
+      <%= image_tag "http://maps.googleapis.com/maps/api/staticmap?center=#{@user.latitude},#{@user.longitude}&markers=#{@user.latitude},#{@user.longitude}&zoom=7&size=640x400&key=AIzaSyA4BHW3txEdqfxzdTlPwaHsYRSZbfeIcd8",
+              class: 'img-fluid img-rounded', alt: "#{@user.address} on the map"%> -->
+
+
+      <div class="user_map_wrapper">
+          <div id="map" data-parameter1='<%= @user.latitude %>' data-parameter2='<%= @user.longitude %>'></div>
+      </div>

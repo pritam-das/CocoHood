@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
 root 'home#index'
 
-resources :users, only: %i(index show new create)
+resources :users
 
 resources :sessions, only: %i(new create destroy)
 
