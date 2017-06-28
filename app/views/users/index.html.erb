@@ -1,0 +1,11 @@
+<h1> List of all users </h1>
+
+<ul>
+<% @users.each do |u| %>
+  <% if u.name != nil %>
+  <li> <%= link_to "#{u.name}", user_path(u) %> </li>
+  <% else %>
+  <li> <%= link_to "#{u.email}", user_path(u) %> </li>
+  <%end %>
+<% end %>
+</ul>
