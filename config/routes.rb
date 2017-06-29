@@ -3,9 +3,10 @@ Rails.application.routes.draw do
 
 root 'home#index'
 
-resources :users do
-    resources :conversations
-end
+resources :users
+
+resources :personal_messages, only: [:new, :create]
+resources :conversations, only: [:index, :show]
 
 resources :sessions, only: %i(new create destroy)
 
