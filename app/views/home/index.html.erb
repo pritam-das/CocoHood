@@ -1,16 +1,46 @@
 <!DOCTYPE html>
 <html>
 <section>
-	<head>
-		<title>CocoHood Co.</title>
-		CocoHood
-	</head>
+  <head>
+    <title>CocoHood Co.</title>
+    CocoHood
+  </head>
 </section>
-	<body>
-			<main>
-				<h1>Welcome to CocoHood Family!</h1>
+  <body>
+      <main>
+        <h1>One Community, Shining Positivity</h1>
 
-			<main/>
-			<footer>Copyrights by CocoHood</footer>
-	</body>
+        <div class="log_sign_container">
+
+          <h2>LOG IN</h2>
+
+          <div class="form_content">
+
+            <%= form_tag sessions_path do %>
+
+            <div class="form_field">
+              <%= label_tag :email %>
+              <%= email_field_tag :email, params[:email] %>
+            </div>
+
+            <div class="form_field">
+              <%= label_tag :password %>
+              <%= password_field_tag :password %>
+            </div>
+
+            <div class="event_going">
+              <h6><i class="fa fa-circle-o"></i> REMEMBER ME</h6>
+              <%= submit_tag "LOG IN" %>
+            </div>
+
+            <%end %>
+
+
+
+          </div>
+
+
+      <main/>
+      <footer>Copyrights by CocoHood</footer>
+  </body>
 </html>
