@@ -15,6 +15,22 @@
 <%= f.text_field :address %>
 </div>
 
+<div>
+Use the columns below to list up to 5 interests!
+</div>
+
+<div id = "interest0" >
+  <input type="textbox" name="user[interests][]" value="<%= "#{@user.interests[0]}" %>">
+  <input type="textbox" name="user[interests][]" value="<%= "#{@user.interests[1]}" %>">
+  <input type="textbox" name="user[interests][]" value="<%= "#{@user.interests[2]}" %>">
+  <input type="textbox" name="user[interests][]" value="<%= "#{@user.interests[3]}" %>">
+  <input type="textbox" name="user[interests][]" value="<%= "#{@user.interests[4]}" %>">
+</div>
+
+
+
+
+
 
 <%= f.submit %>
 
