@@ -20,16 +20,25 @@ Use the columns below to list up to 5 interests!
 </div>
 
 <div id = "interest0" >
-  <input type="textbox" name="user[interests][]" value="<%= "#{@user.interests[0]}" %>">
-  <input type="textbox" name="user[interests][]" value="<%= "#{@user.interests[1]}" %>">
-  <input type="textbox" name="user[interests][]" value="<%= "#{@user.interests[2]}" %>">
-  <input type="textbox" name="user[interests][]" value="<%= "#{@user.interests[3]}" %>">
-  <input type="textbox" name="user[interests][]" value="<%= "#{@user.interests[4]}" %>">
+  <label for="formGroupExampleInput">1st Interest</label>
+  <input type="textbox" class="form-control" name="user[interests][]" value="<%= "#{@user.interests[0]}" %>" placeholder="Music">
 </div>
-
-
-
-
+<div id = "interest1" >
+  <label for="formGroupExampleInput">2nd Interest</label>
+  <input type="textbox" class="form-control" name="user[interests][]" value="<%= "#{@user.interests[1]}" %>" placeholder="Cooking">
+</div>
+<div id = "interest2" >
+  <label for="formGroupExampleInput">3rd Interest</label>
+  <input type="textbox" class="form-control" name="user[interests][]" value="<%= "#{@user.interests[2]}" %>" placeholder="Arts">
+</div>
+<div id = "interest3" >
+  <label for="formGroupExampleInput">4th Interest</label>
+  <input type="textbox" class="form-control" name="user[interests][]" value="<%= "#{@user.interests[3]}" %>" placeholder="Photography">
+</div>
+<div id = "interest4" >
+  <label for="formGroupExampleInput">5th Interest</label>
+  <input type="textbox" class="form-control" name="user[interests][]" value="<%= "#{@user.interests[4]}" %>" placeholder="Skiing">
+</div>
 
 
 <%= f.submit %>
