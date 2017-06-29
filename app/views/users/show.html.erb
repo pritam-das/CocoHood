@@ -18,13 +18,12 @@
 
 
       <div class="user_profile_bio">
-
-        <h5>BIO</h5>
+      <p>
+        Bio:
         <% if @user.bio != nil %>
         <%= "#{@user.bio}" %>
-        <% else %>
-        <p> bio: empty </p>
         <% end %>
+      </p>
       </div>
 
       <div class="user_profile_address">
@@ -34,6 +33,24 @@
         <p> Coordinates: <%= @user.latitude %><%= @user.longitude %></p>
         <% end %>
       </div>
+
+      <div class="user_interests_column_display">
+
+        <% if @user.interests != nil %>
+        My interests:
+        <ul>
+
+        <% @user.interests.each do |i| %>
+          <% if i[0] != nil %>
+            <li><%= "#{i}" %></li>
+          <%end%>
+        <% end %>
+
+        </ul>
+        <% end %>
+      </div>
+
+
 <!--
       <%= image_tag "http://maps.googleapis.com/maps/api/staticmap?center=#{@user.latitude},#{@user.longitude}&markers=#{@user.latitude},#{@user.longitude}&zoom=7&size=640x400&key=AIzaSyA4BHW3txEdqfxzdTlPwaHsYRSZbfeIcd8",
               class: 'img-fluid img-rounded', alt: "#{@user.address} on the map"%> -->
