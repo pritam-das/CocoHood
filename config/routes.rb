@@ -3,7 +3,9 @@ Rails.application.routes.draw do
 
 root 'home#index'
 
-resources :users
+resources :users do
+    resources :conversations
+end
 
 resources :sessions, only: %i(new create destroy)
 

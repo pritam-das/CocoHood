@@ -1,0 +1,2 @@
+class PersonalMessagesController < ApplicationController
+end
