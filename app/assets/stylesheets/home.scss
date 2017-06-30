@@ -8,15 +8,24 @@ html {
 }
 
 footer {
-  position: relative;
+  position: absolute;
   width: 100%;
   margin-top: 2%;
+  bottom: 5%;
 }
 
 .home-content {
   background-color: #73d8ec;
   color: #FFFFFF;
   text-align: center;
+}
+
+.home-logo {
+  margin-top: 5%;
+}
+
+.home-title {
+  margin: 5%;
 }
 
 .login_signup_button {
