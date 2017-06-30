@@ -1,16 +1,34 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8">
+    <title>Amanda</title>
+    <link rel="stylesheet" href="http://s3.amazonaws.com/codecademy-content/courses/ltp/css/bootstrap.css">
+    <title>CocoHood Co.</title>
+  </head>
+  <body>
+    <div class="home-content">
 <section>
-	<head>
-		<title>CocoHood</title>
-		CocoHood
-	</head>
+  <head>
+    <title>CocoHood</title>
+  </head>
 </section>
-	<body>
-			<main>
-				<h1>Welcome to CocoHood Family!</h1>
+  <body>
+      <main>
+        <div class="home-logo">
+          <%= image_tag("logos/CocohoodLogo.png") %>
+        </div>
 
-			<main/>
-			<footer>Copyrights by CocoHood</footer>
-	</body>
+        <div class="home-title">
+          <h2>One Community, Shining Positivity</h2>
+        </div>
+
+        <div class="login-signup-nav">
+          <%= link_to 'Log In', new_session_path, :class => "login_signup_button" %>
+          <%= link_to 'Sign Up', new_user_path, :class => "login_signup_button" %>
+        </div>
+
+        <footer>About CocoHood | The Team | Our Values & Purposes </footer>
+    </div>
+  </body>
 </html>
