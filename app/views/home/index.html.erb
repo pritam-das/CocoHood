@@ -1,46 +1,26 @@
 <!DOCTYPE html>
 <html>
-<section>
   <head>
+    <meta charset="utf-8">
+    <title>Amanda</title>
+    <link rel="stylesheet" href="http://s3.amazonaws.com/codecademy-content/courses/ltp/css/bootstrap.css">
     <title>CocoHood Co.</title>
-    CocoHood
   </head>
-</section>
   <body>
-      <main>
-        <h1>One Community, Shining Positivity</h1>
+    <div class="home-content">
 
-        <div class="log_sign_container">
+        <div class="home-logo">
+          <%= image_tag("logos/CocohoodLogo.png") %>
+        </div>
 
-          <h2>LOG IN</h2>
+        <h2>One Community, Shining Positivity</h2>
 
-          <div class="form_content">
+        <div class="login-signup-nav">
+          <%= link_to 'Log In', new_session_path, :class => "login_signup_button" %>
+          <%= link_to 'Sign Up', new_user_path, :class => "login_signup_button" %>
+        </div>
 
-            <%= form_tag sessions_path do %>
-
-            <div class="form_field">
-              <%= label_tag :email %>
-              <%= email_field_tag :email, params[:email] %>
-            </div>
-
-            <div class="form_field">
-              <%= label_tag :password %>
-              <%= password_field_tag :password %>
-            </div>
-
-            <div class="event_going">
-              <h6><i class="fa fa-circle-o"></i> REMEMBER ME</h6>
-              <%= submit_tag "LOG IN" %>
-            </div>
-
-            <%end %>
-
-
-
-          </div>
-
-
-      <main/>
-      <footer>Copyrights by CocoHood</footer>
+        <footer>About CocoHood | The Team | Our Values & Purposes </footer>
+    </div>
   </body>
 </html>
