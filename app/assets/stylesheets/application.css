@@ -15,8 +15,33 @@
  */
 
 @import "bootstrap";
+@import "boostrap-sprockets";
 
  #map {
    height: 300px;
    width: 100%;
+   position: relative;
+   display: block;
  }
+ #logo{
+ 	float: left;
+ 	margin-right: 10px;
+ 	font-size: 1.7em;
+ 	color: #fff;
+ 	letter-spacing: -1px;
+ 	font-weight: bold;
+ }
+
+img::selection {
+  color: white;
+  background: transparent;
+}
+body {
+  height: 100%;
+  width: 100%;
+  font-family: 'Merriweather', 'Helvetica Neue', Arial, serif;
+  text-align: left;
+}
+p,h1 {
+  font-family: 'Open Sans', 'Helvetica Neue', Arial, serif;
+}
