@@ -36,6 +36,10 @@ img::selection {
   color: white;
   background: transparent;
 }
+html {
+  background-color: #73d8ec;
+  color: #FFFFFF;
+}
 body {
   height: 100%;
   width: 100%;

@@ -1,3 +1,39 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.borderbox0 {
+    border: 5px solid yellow;
+}
+.borderbox1 {
+    border: 5px solid blue;
+}
+.banner{
+width:620px;
+height: 100px;
+margin:7px auto;
+text-aligh:left;
+-moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+-moz-border-radius: 15px;
+-webkit-border-radius: 15px;
+padding-left:190px;
+}
+.banner0{
+color:#37535B;
+background: #f4eb42 no-repeat center left;
+font-family: "Arial Narrow";
+}
+.banner1{
+background: #31B3DA no-repeat center left;
+}
+.banner2{
+color:#37535B;
+background: #f99959 no-repeat center left;
+font-family: "Arial Narrow";
+}
+.banner3{
+color:#656A64;
+background: #81D573 no-repeat center left;
+font-family: "Palatino Linotype";
+}
