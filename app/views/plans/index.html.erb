@@ -22,9 +22,9 @@
         <td><%= plan.name %></td>
         <td><%= plan.start_time %></td>
         <td><%= plan.end_time %></td>
-        <td><%= link_to 'Show', plan %></td>
-        <td><%= link_to 'Edit', edit_plan_path(plan) %></td>
-        <td><%= link_to 'Destroy', plan, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Examine', plan %></td>
+        <td><%= link_to 'Update', edit_plan_path(plan) %></td>
+        <td><%= link_to 'Delete', plan, method: :delete, data: { confirm: 'RIP this event :(?' } %></td>
       </tr>
     <% end %>
   </tbody>
