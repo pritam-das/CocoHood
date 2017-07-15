@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @plan.name %>
+</p>
+
+<p>
+  <strong>Start time:</strong>
+  <%= @plan.start_time %>
+</p>
+
+<p>
+  <strong>End time:</strong>
+  <%= @plan.end_time %>
+</p>
+
+<%= link_to 'Edit', edit_plan_path(@plan) %> |
+<%= link_to 'Back', plans_path %>
