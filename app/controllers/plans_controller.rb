@@ -1,28 +1,27 @@
 class PlansController < ApplicationController
   before_action :set_plan, only: [:show, :edit, :update, :destroy]
 
-  # GET /plans
-  # GET /plans.json
+  # Currently shows all of the plans that have been made.
+  # Does not currently support different users.
   def index
     @plans = Plan.all
   end
 
-  # GET /plans/1
-  # GET /plans/1.json
+  # Each create event has the following link: /plans/1, etc.
+  # Also fetches the json associated with the event
   def show
   end
 
-  # GET /plans/new
+  # Create a new plan
   def new
     @plan = Plan.new
   end
 
-  # GET /plans/1/edit
+  # Edit current plan
   def edit
   end
 
-  # POST /plans
-  # POST /plans.json
+  # Create a plan
   def create
     @plan = Plan.new(plan_params)
 
@@ -37,8 +36,7 @@ class PlansController < ApplicationController
     end
   end
 
-  # PATCH/PUT /plans/1
-  # PATCH/PUT /plans/1.json
+  # Update plan
   def update
     respond_to do |format|
       if @plan.update(plan_params)
@@ -51,8 +49,7 @@ class PlansController < ApplicationController
     end
   end
 
-  # DELETE /plans/1
-  # DELETE /plans/1.json
+  # Delete a plan
   def destroy
     @plan.destroy
     respond_to do |format|
