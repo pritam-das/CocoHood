@@ -15,3 +15,5 @@
 //= require rails-ujs
 //= require_tree .
 //= require map
+//= require underscore
+//= require gmaps/google
