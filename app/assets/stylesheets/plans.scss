@@ -10,14 +10,15 @@
     border: 1px solid rgb(221, 221, 221);
     border-collapse: collapse;
     box-sizing: border-box;
-    max-width: 100%;
-    width: 100%;
+    max-width: 90%;
+    width: 90%;
   }
 
   tr {
     border-collapse: collapse;
   }
 
+  //Calendar header
   th {
     padding: 6px;
     border-bottom: 2px solid rgb(221, 221, 221);
@@ -29,6 +30,7 @@
     text-align: left;
   }
 
+  //Calendar column settings
   td {
     padding: 6px;
     vertical-align: top;
@@ -61,23 +63,25 @@
   .wday-5 {}
   .wday-6 {}
 
-  .today {
-    background: #FFFFC0
-  }
-
   .past {}
   .future {}
 
   .start-date {}
 
   .prev-month {
-    background: #DDD;
+    background: #8D8D8D;
   }
   .next-month {
-    background: #DDD;
+    background: #8D8D8D;
   }
-  .current-month {}
+  .current-month {
+  }
 
   .has-events {
+    background: #6CD1BE
+  }
+
+  .today {
+    background: #FFFFC0
   }
 }

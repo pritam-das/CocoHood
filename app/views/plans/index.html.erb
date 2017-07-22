@@ -4,13 +4,13 @@
 
 <%# Passing all the plans as an event for view rendering
     and printing out the day and the name of the event if
-    there is one. %>
+    there is one. Plan name displayed along with link to event. %>
 <%= month_calendar events: @plans do |date, plans| %>
   <%= date.day %>
 
   <% plans.each do |plan| %>
     <div>
-      <%= plan.name %>
+      <%= link_to plan.name, plan %>
     </div>
   <% end %>
 <% end %>
