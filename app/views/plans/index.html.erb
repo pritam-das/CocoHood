@@ -1,18 +1,31 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Plans</h1>
+<h1>Events</h1>
 
-<%= month_calendar do |date| %>
-  <%= date %>
+<%# Passing all the plans as an event for view rendering
+    and printing out the day and the name of the event if
+    there is one. %>
+<%= month_calendar events: @plans do |date, plans| %>
+  <%= date.day %>
+
+  <% plans.each do |plan| %>
+    <div>
+      <%= plan.name %>
+    </div>
+  <% end %>
 <% end %>
 
+
+<%# Keeping track of the events created in a table. Will edit
+    for project release. %>
 <table>
   <thead>
     <tr>
       <th>Name</th>
       <th>Start time</th>
       <th>End time</th>
-      <th colspan="3"></th>
+      <th>User</th>
+      <th colspan="4"></th>
     </tr>
   </thead>
 
@@ -22,6 +35,7 @@
         <td><%= plan.name %></td>
         <td><%= plan.start_time %></td>
         <td><%= plan.end_time %></td>
+        <td><%= plan.user.email %></td>
         <td><%= link_to 'Examine', plan %></td>
         <td><%= link_to 'Update', edit_plan_path(plan) %></td>
         <td><%= link_to 'Delete', plan, method: :delete, data: { confirm: 'RIP this event :(?' } %></td>
@@ -32,4 +46,4 @@
 
 <br>
 
-<%= link_to 'New Plan', new_plan_path %>
+<%= link_to 'New Event', new_plan_path %>

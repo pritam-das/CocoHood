@@ -1,5 +1,8 @@
 class PlansController < ApplicationController
   before_action :set_plan, only: [:show, :edit, :update, :destroy]
+  before_action :ensure_logged_in, except: [:index, :show]
+
+  # AUTHENTICATION FOR EVENT DELETION CURRENTLY WEAK, USER_ID COMPARISON
 
   # Currently shows all of the plans that have been made.
   # Does not currently support different users.
@@ -12,18 +15,22 @@ class PlansController < ApplicationController
   def show
   end
 
-  # Create a new plan
+  # Only a user who is logged in is allowed to create a plan.
   def new
-    @plan = Plan.new
+    @plan = current_user.plans.build
   end
 
   # Edit current plan
   def edit
+    if @plan.user_id != current_user.id
+      flash[:notice] = "You are not authorized to update this event."
+      redirect_to plans_url
+    end
   end
 
   # Create a plan
   def create
-    @plan = Plan.new(plan_params)
+    @plan = current_user.plans.build(plan_params)
 
     respond_to do |format|
       if @plan.save
@@ -40,7 +47,7 @@ class PlansController < ApplicationController
   def update
     respond_to do |format|
       if @plan.update(plan_params)
-        format.html { redirect_to @plan, notice: 'Plan was successfully updated.' }
+        format.html { redirect_to @plan, notice: 'Event was successfully updated.' }
         format.json { render :show, status: :ok, location: @plan }
       else
         format.html { render :edit }
@@ -51,10 +58,15 @@ class PlansController < ApplicationController
 
   # Delete a plan
   def destroy
-    @plan.destroy
-    respond_to do |format|
-      format.html { redirect_to plans_url, notice: 'Plan was successfully destroyed.' }
-      format.json { head :no_content }
+    if @plan.user_id != current_user.id
+      flash[:notice] = "You are not authorized to delete this event"
+      redirect_to plans_url
+    else
+      @plan.destroy
+      respond_to do |format|
+        format.html { redirect_to plans_url, notice: 'Event was successfully deleted.' }
+        format.json { head :no_content }
+      end
     end
   end
 
@@ -66,6 +78,6 @@ class PlansController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def plan_params
-      params.require(:plan).permit(:name, :start_time, :end_time, :details)
+      params.require(:plan).permit(:name, :start_time, :end_time)
     end
 end
