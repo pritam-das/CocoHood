@@ -10,4 +10,7 @@ class User < ApplicationRecord
   has_many :personal_messages, dependent: :destroy
 
   has_many :plans
+
+  has_one :username
+
 end
