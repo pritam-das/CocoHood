@@ -20,7 +20,7 @@ class PlansController < ApplicationController
     @plan = current_user.plans.build
   end
 
-  # Edit current plan
+  # Attempts to edit the event. Includes authentication check.
   def edit
     if @plan.user_id != current_user.id
       flash[:notice] = "You are not authorized to update this event."
@@ -28,7 +28,7 @@ class PlansController < ApplicationController
     end
   end
 
-  # Create a plan
+  # Create an event and bind it to the current user.
   def create
     @plan = current_user.plans.build(plan_params)
 
@@ -43,7 +43,7 @@ class PlansController < ApplicationController
     end
   end
 
-  # Update plan
+  # Edit link directs to update function.
   def update
     respond_to do |format|
       if @plan.update(plan_params)
@@ -56,7 +56,8 @@ class PlansController < ApplicationController
     end
   end
 
-  # Delete a plan
+  # Delete a plan. Currently does an authentication check when the function is called.
+  # ** REVISE LOGIC **
   def destroy
     if @plan.user_id != current_user.id
       flash[:notice] = "You are not authorized to delete this event"

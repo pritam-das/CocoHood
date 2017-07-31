@@ -11,6 +11,13 @@ class User < ApplicationRecord
 
   has_many :plans
 
-  has_one :username
+  # Returns usernames that match with the searched term 
+  def self.search(search)
+      if search
+          where(["username LIKE ?","%#{search}%"])
+      else
+          all
+      end
+  end
 
 end

@@ -4,8 +4,10 @@ def new
   @user = User.new
 end
 
+# Fetches list of users based on search terms. Shows all users by default.
+# Retrieval method is written in the models file.
 def index
-  @users = User.all
+  @users = User.search(params[:search])
 end
 
 def show
@@ -44,7 +46,7 @@ end
 
 private
 def user_params
-  params.require(:user).permit(:email, :password, :password_confirmation, :name, :address, :avatar, :bio, :interests => [])
+  params.require(:user).permit(:email, :password, :password_confirmation, :name, :address, :avatar, :bio, :interests, :username => [])
 end
 
 
