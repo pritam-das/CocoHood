@@ -170,6 +170,55 @@
           <% end %>
         </div>
 
+      </div>
+
+        <div class="col-md-8 col-sm-6 col-xs-12">
+          <h1 class="banner1">CocoServices - Your Helper</h1>
+          <p>Carpool</p>
+          <p>House Cleaning</p>
+          <p>Pool Services</p>
+
+          <div class="row">
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <h1 class="banner2">CocoNews</h1>
+              Good news!
+            </div>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <h1 class="banner3">CocoExplore</h1>
+
+              <div class="user_map_wrapper">
+                <div id="map"></div>
+              </div>
+
+              <script type="text/javascript">
+              handler = Gmaps.build('Google');
+                  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+                    markers = handler.addMarkers(<%=raw @hash.to_json %>);
+                    handler.bounds.extendWith(markers);
+                    handler.fitMapToBounds();
+                  });
+
+              </script>
+
+
+            </div>
+          </div>
+          <div style='width: 800px;'>
+            <div id="map" style='width: 800px; height: 400px;'></div>
+          </div>
+
+          <script type="text/javascript">
+          handler = Gmaps.build('Google');
+              handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+                markers = handler.addMarkers(<%=raw @hash.to_json %>);
+                handler.bounds.extendWith(markers);
+                handler.fitMapToBounds();
+              });
+
+          </script>
+        </div>
+      </div>
+</div>
 <%end %>
 
 
