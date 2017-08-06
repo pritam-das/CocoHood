@@ -30,6 +30,15 @@
           <% end %>
         </div>
 
+        <div class="user_profile_picture" >
+          <% if @user.image != nil %>
+            <img class="profile_picture">
+                  <%= image_tag(@user.image.url, :size => "260x180")%>
+            </img>
+          <% end %>
+        </div>
+
+
         <div class="user_profile_bio">
         <p>
           Bio:
@@ -62,6 +71,8 @@
           </ul>
           <% end %>
         </div>
+
+
 
       <!-- <div class="user_map_wrapper">
       <p> The user is located at:
