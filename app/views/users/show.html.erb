@@ -3,7 +3,16 @@
 <!-- Plugin CSS -->
 <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
 <link rel="stylesheet" href="http://s3.amazonaws.com/codecademy-content/courses/ltp/css/bootstrap.css">
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8eROKo0NXMtH-CpqiK_nQngGwRXqTmxk"></script>
+<script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"></script>
+<script src='//cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js' type='text/javascript'></script> <!-- only if you need custom infoboxes -->
 <body>
+
+<%if current_user == @user %>
+
+
+
 <div class="container">
   <div class="row">
     <div class="col-md-3 col-sm-6 col-xs-12">
@@ -53,13 +62,11 @@
           </ul>
           <% end %>
         </div>
-<!--
-      <%= image_tag "http://maps.googleapis.com/maps/api/staticmap?center=#{@user.latitude},#{@user.longitude}&markers=#{@user.latitude},#{@user.longitude}&zoom=7&size=640x400&key=AIzaSyA4BHW3txEdqfxzdTlPwaHsYRSZbfeIcd8",
-              class: 'img-fluid img-rounded', alt: "#{@user.address} on the map"%>
 
-      <div class="user_map_wrapper">
+      <!-- <div class="user_map_wrapper">
+      <p> The user is located at:
           <div id="map" data-parameter1='<%= @user.latitude %>' data-parameter2='<%= @user.longitude %>'></div>
-      </div>-->
+      </div> -->
     </div>
 
       <div class="col-md-8 col-sm-6 col-xs-12">
@@ -75,12 +82,144 @@
           </div>
           <div class="col-md-6 col-sm-6 col-xs-12">
             <h1 class="banner3">CocoExplore</h1>
+
             <div class="user_map_wrapper">
-              <div id="map" data-parameter1='<%= @user.latitude %>' data-parameter2='<%= @user.longitude %>'></div>
+              <div id="map"></div>
             </div>
+
+            <script type="text/javascript">
+            handler = Gmaps.build('Google');
+                handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+                  markers = handler.addMarkers(<%=raw @hash.to_json %>);
+                  handler.bounds.extendWith(markers);
+                  handler.fitMapToBounds();
+                });
+
+            </script>
+
+
           </div>
         </div>
+        <div style='width: 800px;'>
+          <div id="map" style='width: 800px; height: 400px;'></div>
+        </div>
+
+        <script type="text/javascript">
+        handler = Gmaps.build('Google');
+            handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+              markers = handler.addMarkers(<%=raw @hash.to_json %>);
+              handler.bounds.extendWith(markers);
+              handler.fitMapToBounds();
+            });
+
+        </script>
       </div>
   </div>
 </div>
+
+
+<% else %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1 class="banner0"> User Profile </h1>
+       <div class="edit_profile">
+
+        <%= link_to 'Send a message', new_personal_message_path(receiver_id: @user) %>
+
+        </div>
+        <div class="user_profile_name">
+          <% if @user.name != nil %>
+            <h2><%= "#{@user.name}" %> </h2>
+          <% else %>
+            <h2><%= "#{@user.email}" %></h2>
+          <% end %>
+        </div>
+
+        <div class="user_profile_bio">
+        <p>
+          Bio:
+          <% if @user.bio != nil %>
+          <%= "#{@user.bio}" %>
+          <% end %>
+        </p>
+        </div>
+
+        <div class="user_profile_address">
+
+          <% if @user.address != nil %>
+          <p> Address: <%= "#{@user.address}" %> </p>
+          <!--<p> Coordinates: <%= @user.latitude %><%= @user.longitude %></p>-->
+          <% end %>
+        </div>
+
+        <div class="user_interests_column_display">
+
+          <% if @user.interests != nil %>
+          My interests:
+          <ul>
+
+          <% @user.interests.each do |i| %>
+            <% if i[0] != nil %>
+              <li><%= "#{i}" %></li>
+            <%end%>
+          <% end %>
+
+          </ul>
+          <% end %>
+        </div>
+
+      </div>
+
+        <div class="col-md-8 col-sm-6 col-xs-12">
+          <h1 class="banner1">CocoServices - Your Helper</h1>
+          <p>Carpool</p>
+          <p>House Cleaning</p>
+          <p>Pool Services</p>
+
+          <div class="row">
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <h1 class="banner2">CocoNews</h1>
+              Good news!
+            </div>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <h1 class="banner3">CocoExplore</h1>
+
+              <div class="user_map_wrapper">
+                <div id="map"></div>
+              </div>
+
+              <script type="text/javascript">
+              handler = Gmaps.build('Google');
+                  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+                    markers = handler.addMarkers(<%=raw @hash.to_json %>);
+                    handler.bounds.extendWith(markers);
+                    handler.fitMapToBounds();
+                  });
+
+              </script>
+
+
+            </div>
+          </div>
+          <div style='width: 800px;'>
+            <div id="map" style='width: 800px; height: 400px;'></div>
+          </div>
+
+          <script type="text/javascript">
+          handler = Gmaps.build('Google');
+              handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+                markers = handler.addMarkers(<%=raw @hash.to_json %>);
+                handler.bounds.extendWith(markers);
+                handler.fitMapToBounds();
+              });
+
+          </script>
+        </div>
+      </div>
+</div>
+<%end %>
+
+
 </body>

@@ -10,10 +10,20 @@
 <%= f.text_field :bio %>
 </div>
 
-<div id = "location" >
-<%= f.label :address %>
-<%= f.text_field :address %>
-</div>
+
+
+      <label for="locationTextField">Location</label>
+      <input id="locationTextField" type="text" size="50" class="form-control" name="user[address]" value="<%= "#{@user.address}" %>" placeholder="Enter your address/intersection/neighborhood">
+
+        <script>
+            function init() {
+                var input = document.getElementById('locationTextField');
+                var autocomplete = new google.maps.places.Autocomplete(input);
+
+            }
+
+            google.maps.event.addDomListener(window, 'load', init);
+        </script>
 
 <div>
 Use the columns below to list up to 5 interests!

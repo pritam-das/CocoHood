@@ -28,6 +28,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt'
 
 gem 'geocoder'
+gem 'gmaps4rails'
+gem 'underscore-rails'
 
 gem 'jquery-rails'
 

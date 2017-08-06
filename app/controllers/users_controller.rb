@@ -6,10 +6,21 @@ end
 
 def index
   @users = User.all
+  @hash = Gmaps4rails.build_markers(@users) do |user, marker|
+    marker.lat user.latitude
+    marker.lng user.longitude
+  end
 end
 
 def show
+  @users = User.all
   @user = User.find(params[:id])
+  @hash = Gmaps4rails.build_markers(@users) do |user, marker|
+    marker.lat user.latitude
+    marker.lng user.longitude
+    marker.infowindow user.name
+    marker.json({title: user.name})
+  end
 end
 
 def create
