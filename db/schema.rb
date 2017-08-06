@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170629040022) do
+ActiveRecord::Schema.define(version: 20170806005534) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 20170629040022) do
     t.float "latitude"
     t.float "longitude"
     t.string "interests", default: [], array: true
+    t.string "image"
   end
 
   add_foreign_key "personal_messages", "conversations"
